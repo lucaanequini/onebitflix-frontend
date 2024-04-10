@@ -14,7 +14,7 @@ const HeaderNoAuth = () => {
                 <img src='/logoOnebitflix.svg' alt='logoOnebitflix' className={styles.imgLogoNav}></img>
                 <div>
                     <Link href='/login'><Button className={styles.navBtn} outline>Entrar</Button></Link>
-                    <Link href='/registro'><Button className={styles.navBtn} outline>Quero fazer parte</Button></Link>
+                    <Link href='/register'><Button className={styles.navBtn} outline>Quero fazer parte</Button></Link>
                 </div>
             </Container>
         </>)
