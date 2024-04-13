@@ -43,6 +43,7 @@ const Register = () => {
             setTimeout(() => {
                 setToastIsOpen(false)
             }, 1000 * 3)
+            
             setToastMessage(data.message)
         }
     }
