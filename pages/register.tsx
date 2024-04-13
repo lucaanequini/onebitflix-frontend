@@ -1,0 +1,20 @@
+import '../styles/registerLogin.module.scss'
+import Head from 'next/head'
+import HeaderGeneric from '@/src/components/common/headerGeneric'
+
+
+const Register = () => {
+    return (
+        <>
+            <Head>
+                <title>OneBitFlix - Registro</title>
+                <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+            </Head>
+            <main>
+                <HeaderGeneric logoUrl='/' btnUrl='/login' btnContent='Quero fazer login'></HeaderGeneric>
+            </main>
+        </>
+    )
+}
+
+export default Register
