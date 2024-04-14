@@ -7,12 +7,20 @@ import ToastComponent from '@/src/components/common/toast'
 import { FormEvent } from 'react'
 import authService from '@/src/services/authService'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Register = () => {
     const [toastIsOpen, setToastIsOpen] = useState(false)
     const [toastMessage, setToastMessage] = useState('')
     const router = useRouter()
+
+
+    useEffect(() => {
+        if (sessionStorage.getItem('onebitflix-token')) {
+            router.push('/home')
+        }
+    }, [])
+
     const handleRegister = async (ev: FormEvent<HTMLFormElement>) => {
         ev.preventDefault()
 
@@ -43,7 +51,7 @@ const Register = () => {
             setTimeout(() => {
                 setToastIsOpen(false)
             }, 1000 * 3)
-            
+
             setToastMessage(data.message)
         }
     }

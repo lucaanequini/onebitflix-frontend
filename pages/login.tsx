@@ -19,6 +19,12 @@ const Login = () => {
     const router = useRouter()
 
     useEffect(() => {
+        if (sessionStorage.getItem('onebitflix-token')) {
+            router.push('/home')
+        }
+    }, [])
+
+    useEffect(() => {
         const registerSucess = router.query.registred
         if (registerSucess === "true") {
             setToastColor("bg-success");
@@ -72,7 +78,7 @@ const Login = () => {
                                 className={styles.input}
                                 placeholder='Digite seu e-mail'
                                 required
-                                maxLength={20}
+                                maxLength={30}
                             >
                             </Input>
                         </FormGroup>
