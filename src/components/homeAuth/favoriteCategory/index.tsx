@@ -10,7 +10,7 @@ const FavoriteCategory = () => {
     if (!data) return (<p>Loading...</p>)
     return (
         <>
-            <p className={styles.title}>Minha Lista</p>
+            <p className={styles.title}>MINHA LISTA</p>
             {data.data.courses.length >= 1 ? (
                 <SlideComponent course={data.data.courses} />
             ) : (
