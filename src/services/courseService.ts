@@ -1,3 +1,4 @@
+import { headers } from "next/headers"
 import api from "./api"
 
 
@@ -21,7 +22,6 @@ export type CourseType = {
 const courseService = {
     getNewestCourses: async () => {
         const res = await api.get('/courses/newest').catch((error) => {
-            console.log(error.response.data.message)
             return error.response
         })
         return res
@@ -33,7 +33,40 @@ const courseService = {
                 Authorization: `Bearer ${token}`
             }
         }).catch((error) => {
-            console.log(error.response.data.message)
+            return error.response
+        })
+        return res
+    },
+    addToFav: async (courseId: number | string) => {
+        const token = sessionStorage.getItem('onebitflix-token')
+        const res = await api.post('/favorites', { courseId }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).catch((error) => {
+            return error.response
+        })
+        return res
+    },
+    removeFromFav: async (courseId: number | string) => {
+        const token = sessionStorage.getItem('onebitflix-token')
+        const res = await api.delete('/favorites', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            data: { courseId }
+        }).catch((error) => {
+            return error.response
+        })
+        return res
+    },
+    getFavs: async () => {
+        const token = sessionStorage.getItem('onebitflix-token')
+        const res = await api.get('/favorites', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).catch((error) => {
             return error.response
         })
         return res

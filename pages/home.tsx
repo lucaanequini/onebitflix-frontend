@@ -3,6 +3,7 @@ import HeaderAuth from "@/src/components/common/headerAuth"
 import FeaturedSection from "@/src/components/homeAuth/featuredSection"
 import Footer from '@/src/components/common/footer'
 import NewestCategory from "@/src/components/homeAuth/newestCategory"
+import FavoriteCategory from "@/src/components/homeAuth/favoriteCategory"
 
 const HomeAuth = () => {
     return (
@@ -14,6 +15,7 @@ const HomeAuth = () => {
             <main>
                 <FeaturedSection></FeaturedSection>
                 <NewestCategory></NewestCategory>
+                <FavoriteCategory></FavoriteCategory>
             </main>
         </>
     )
