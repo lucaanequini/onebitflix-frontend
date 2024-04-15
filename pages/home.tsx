@@ -5,6 +5,7 @@ import Footer from '@/src/components/common/footer'
 import NewestCategory from "@/src/components/homeAuth/newestCategory"
 import FavoriteCategory from "@/src/components/homeAuth/favoriteCategory"
 import FeaturedCategory from "@/src/components/homeAuth/featuredCategory"
+import CategoryList from "@/src/components/homeAuth/listCategories"
 
 const HomeAuth = () => {
     return (
@@ -18,6 +19,7 @@ const HomeAuth = () => {
                 <NewestCategory></NewestCategory>
                 <FavoriteCategory></FavoriteCategory>
                 <FeaturedCategory></FeaturedCategory>
+                <CategoryList></CategoryList>
             </main>
         </>
     )
