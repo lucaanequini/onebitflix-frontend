@@ -111,11 +111,17 @@
     font-weight: bold;
     font-size: 15px;
     padding: 6px 20px;
+    transition: 0.4s;
 
     &:hover {
         background-color: transparent;
         border-color: $darkRed;
         color: $mediumGray;
+    }
+
+    &:focus {
+        box-shadow: none;
+        outline: none;
     }
 }
 
@@ -138,6 +144,10 @@
         background-color: transparent;
         border-color: $lightRed;
         color: $lightGray;
+    }
+
+    &:active {
+        background-color: transparent;
     }
 }
 
