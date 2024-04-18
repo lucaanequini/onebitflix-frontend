@@ -2,7 +2,7 @@ import styles from './styles.module.scss'
 import Link from "next/link"
 import { Container, Form, Input } from "reactstrap"
 import Modal from 'react-modal'
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import profileService from '@/src/services/profileService'
 
@@ -11,6 +11,18 @@ Modal.setAppElement('#__next')
 const HeaderAuth = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [initials, setInitials] = useState('')
+    const [searchName, setSearchName] = useState('')
+
+    const handleSearch = async (ev: FormEvent<HTMLFormElement>) => {
+        ev.preventDefault()
+        router.push(`search?name=${searchName}`)
+        setSearchName('')
+    }
+
+    const handleSearchClick = () => {
+        router.push(`search?name=${searchName}`)
+        setSearchName('')
+    }
 
     useEffect(() => {
         profileService.fetchCurrent().then((user) => {
@@ -42,10 +54,12 @@ const HeaderAuth = () => {
                     <img src="/logoOnebitflix.svg" alt="logoOnebitflix" className={styles.imgNav} />
                 </Link>
                 <div className='d-flex align-items-center'>
-                    <Form>
-                        <Input name='search' type='search' placeholder='Pesquisar' className={styles.input}></Input>
+                    <Form onSubmit={handleSearch}>
+                        <Input name='search' type='search' placeholder='Pesquisar' className={styles.input}
+                            value={searchName} onChange={(ev) => setSearchName(ev.currentTarget.value.toLowerCase())}>
+                        </Input>
                     </Form>
-                    <img src="/homeAuth/iconSearch.svg" alt="searchImg" className={styles.searchImg} />
+                    <img src="/homeAuth/iconSearch.svg" alt="searchImg" className={styles.searchImg} onClick={handleSearchClick} />
                     <p className={styles.userProfile} onClick={handleOpenModal}>{initials}</p>
                 </div>
                 <Modal
