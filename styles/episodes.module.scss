@@ -45,20 +45,19 @@
     }
 
     &:disabled {
-        border: none;
-        padding: 0;
+        border-color: $lightGray;
         background-color: transparent;
     }
 
     &:active {
         outline: none;
-        border: none;
+        border-color: $lightGray;
         box-shadow: none;
         background-color: transparent;
     }
 
     &:focus {
-        border: none;
+        border-color: $lightGray;
         outline: none;
         box-shadow: none;
         background-color: transparent;
